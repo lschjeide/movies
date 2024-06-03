@@ -25,7 +25,7 @@ describe('submitRating', () => {
     const jwtToken = 'fake-jwt-token';
     const responseData = { message: 'Rating received!' };
 
-    mock.onPost(`${API_URL}/api/movie-ratings`).reply(200, responseData);
+    mock.onPost(`${API_URL}/movie-ratings`).reply(200, responseData);
 
     const response = await submitRating(rating, imdbID, jwtToken);
 
