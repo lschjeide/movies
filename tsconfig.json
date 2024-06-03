@@ -18,6 +18,9 @@
       }
     ],
     "paths": {
+      "@/components/*": ["./src/app/components/*"],
+      "@/contexts/*": ["./src/app/contexts/*"],
+      "@/services/*": ["./src/app/services/*"],
       "@/*": ["./src/*"]
     }
   },
