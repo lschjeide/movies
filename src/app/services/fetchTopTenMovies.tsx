@@ -9,7 +9,7 @@ const fetchTopTenMovies = async (): Promise<(Movie & OMDBMovie)[]> => {
 
   const detailedMovies = await Promise.all(
     movies.map(async (movie) => {
-      const omdbResponse = await axios.get<OMDBMovie>(`http://www.omdbapi.com/?i=${movie.imdbID}&plot=short&apikey=b61dec25`);
+      const omdbResponse = await axios.get<OMDBMovie>(`https://www.omdbapi.com/?i=${movie.imdbID}&plot=short&apikey=b61dec25`);
       return { ...movie, ...omdbResponse.data };
     })
   );

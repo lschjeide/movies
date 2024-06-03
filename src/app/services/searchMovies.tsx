@@ -1,7 +1,7 @@
 import { OMDBMovie } from '../types';
   
   export const searchMovies = async (slug: string): Promise<OMDBMovie[]> => {
-    const response = await fetch(`http://www.omdbapi.com/?s=${slug}&type=movie&plot=full&apikey=b61dec25`);
+    const response = await fetch(`https://www.omdbapi.com/?s=${slug}&type=movie&plot=full&apikey=b61dec25`);
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
