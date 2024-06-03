@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoadingComponent: React.FC = () => {
+const Loading: React.FC = () => {
   return (
     <div className="m-5 rounded-lg bg-yellow-500 w-fit p-5 text-black font-bold text-2xl">
       Loading...
@@ -8,4 +8,4 @@ const LoadingComponent: React.FC = () => {
   );
 };
 
-export default LoadingComponent;
+export default Loading;

@@ -34,3 +34,7 @@ export interface Movie {
     imdbVotes: string;
     imdbID: string;
   }
+
+  export interface MovieWithIndex extends Movie, OMDBMovie {
+    index: number;
+  }

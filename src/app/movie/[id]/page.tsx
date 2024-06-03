@@ -28,7 +28,7 @@ const MoviePage: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   if (loading) {
     return <Loading/>;
