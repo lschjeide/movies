@@ -7,7 +7,7 @@ import TopTenMovies from './page';
 import fetchTopTenMovies from '../services/fetchTopTenMovies';
 import { Movie, OMDBMovie } from '../types';
 
-jest.mock('../utils/fetchMovies');
+jest.mock('../services/fetchTopTenMovies');
 
 // Mock data
 const movies: (Movie & OMDBMovie)[] = [

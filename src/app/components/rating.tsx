@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '@/contexts/authContext';
+import submitRating from '@/services/submitRating';
 
 
 interface MovieContentProps {
@@ -20,18 +21,14 @@ const RatingForm: React.FC<MovieContentProps> = ({ imdbID }) => {
     }
 
     if (!jwtToken) {
-        setShowLoginPopup(true);
-        return;
+      setShowLoginPopup(true);
+      return;
     }
+
     setLoading(true);
     try {
       // Make API call to submit the rating
-      const response = await axios.post('http://localhost:1337/api/movie-ratings', {"data": { rating, imdbID }},
-      {
-        headers: {
-          Authorization: `Bearer ${jwtToken}`,
-        },
-      });
+      const response = await submitRating(rating, imdbID, jwtToken);
       if (response.status === 200) {
         setMessage('Rating received!');
       }
