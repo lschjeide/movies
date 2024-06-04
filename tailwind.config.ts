@@ -18,7 +18,7 @@ const config: Config = {
       },
       height: {
         "screen-minus-80": "calc(100dvh - 80px)",
-        "screen-minus-120": "calc(100dvh - 120px)",
+        "screen-minus-120": "calc(100dvh - 138px)",
       }
     },
   },
