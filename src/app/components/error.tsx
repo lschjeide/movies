@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface HeadingProps {
+interface ErrorProps {
   error: string | null;
 }
 
-const Heading: React.FC<HeadingProps> = ({ error }) => {
+const Error: React.FC<ErrorProps> = ({ error }) => {
   return (
     <h1 className="mt-5 p-5 rounded-lg w-fit text-2xl mx-5 text-black font-bold bg-coca-cola-red">
       {error}
@@ -12,4 +12,4 @@ const Heading: React.FC<HeadingProps> = ({ error }) => {
   );
 };
 
-export default Heading;
+export default Error;

@@ -3,34 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 
 import RatingForm from "@/components/rating";
+import { OMDBMovieDetail } from '../../types';
 
-interface MovieDetails {
-  Title: string;
-  Year: string;
-  Rated: string;
-  Released: string;
-  Runtime: string;
-  Genre: string;
-  Director: string;
-  Writer: string;
-  Actors: string;
-  Plot: string;
-  Language: string;
-  Country: string;
-  Awards: string;
-  Poster: string;
-  Ratings: { Source: string; Value: string }[];
-  Metascore: string;
-  imdbRating: string;
-  imdbVotes: string;
-  imdbID: string;
-}
-
-interface MoviePageProps {
-  movieDetails: MovieDetails;
-}
-
-const MovieContent: React.FC<MoviePageProps> = ({ movieDetails }) => {
+const MovieContent: React.FC<OMDBMovieDetail> = (movieDetails) => {
   const {
     Title,
     Year,

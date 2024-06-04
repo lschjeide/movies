@@ -42,7 +42,7 @@ const MoviePage: React.FC = () => {
 
 
     <div className="h-full p-5 pb-20">
-      {movie && <MovieContent movieDetails={movie} />}
+      {movie && <MovieContent {...movie} />}
     </div>
     
     

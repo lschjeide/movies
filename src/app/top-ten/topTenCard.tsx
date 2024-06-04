@@ -7,7 +7,7 @@ import { MovieWithIndex } from '../types';
 const TopTenCard: React.FC<MovieWithIndex> = ({ imdbID, Title, Year, Poster, Plot, avgRating, weightedScore, numRatings, index }) => {
   return (
     <Link href={`/movie/${imdbID}`}>
-        <div key={imdbID} className="w-full bg-yellow-500 rounded-lg shadow-lg px-4 py-1 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl">
+        <div key={imdbID} className="w-full bg-yellow-500 rounded-lg shadow-lg px-4 py-1 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"  data-testid="top-ten-card">
             <h1 className="text-xl font-semibold mt-4 text-black font-bold">{index+1}. {Title} ({Year})</h1>
 
             <p className="text-black font-bold mt-2">Average Rating: {avgRating.toFixed(2)}</p>
