@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const handleLogout = () => {
     // Clear token from context
     removeCookie('jwt', {domain: './blockchainbilliards.io'});
-    setTimeout(() => window.location.href = 'https://identity.blockchainbilliards.io/login', 5000);
+    setTimeout(() => window.location.href = 'https://identity.blockchainbilliards.io/logout', 500);
   };
 
   return (
