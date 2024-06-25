@@ -36,7 +36,9 @@ export default function RootLayout({
   }, []);
 
   if (!isAuthenticated) {
-    return null; // Or a loading spinner
+    return (<html lang="en">
+    <body className={inter.className}>
+      <main></main></body></html>); // Or a loading spinner
   }
 
   return (
