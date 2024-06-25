@@ -1,5 +1,4 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { AuthContext } from '@/contexts/authContext';
 import App from './login';
 
 // Mock the AuthContext values
@@ -13,9 +12,7 @@ const mockAuthContextValues = {
 describe('App', () => {
   it('renders Login link when not authenticated', () => {
     render(
-      <AuthContext.Provider value={mockAuthContextValues}>
         <App />
-      </AuthContext.Provider>
     );
 
     // Check that the Login link is rendered
@@ -29,9 +26,7 @@ describe('App', () => {
     };
 
     render(
-      <AuthContext.Provider value={authContextValues}>
         <App />
-      </AuthContext.Provider>
     );
 
     // Check that the Logout link is rendered
@@ -45,9 +40,7 @@ describe('App', () => {
     };
 
     render(
-      <AuthContext.Provider value={authContextValues}>
         <App />
-      </AuthContext.Provider>
     );
 
     // Click the Login link
@@ -66,9 +59,7 @@ describe('App', () => {
     };
 
     render(
-      <AuthContext.Provider value={authContextValues}>
         <App />
-      </AuthContext.Provider>
     );
 
     // Click the Cancel button

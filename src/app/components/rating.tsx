@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
-import axios from 'axios';
-import { AuthContext } from '@/contexts/authContext';
 import submitRating from '@/services/submitRating';
 
+import { getCookie } from 'typescript-cookie';
 
 interface MovieContentProps {
     imdbID: string;
@@ -10,7 +9,7 @@ interface MovieContentProps {
 
 const RatingForm: React.FC<MovieContentProps> = ({ imdbID }) => {
   const [rating, setRating] = useState<number | ''>('');
-  const { jwtToken, setShowLoginPopup } = useContext(AuthContext);
+  const jwtToken = getCookie('jwt');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -21,7 +20,7 @@ const RatingForm: React.FC<MovieContentProps> = ({ imdbID }) => {
     }
 
     if (!jwtToken) {
-      setShowLoginPopup(true);
+        window.location.href = 'https://identity.blockchainbilliards.io/login'
       return;
     }
 
