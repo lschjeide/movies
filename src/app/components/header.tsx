@@ -1,8 +1,7 @@
 "use client";
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AuthContext } from '@/contexts/authContext';
 
 import { FaBars } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -19,10 +18,6 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const { showLoginPopup } = useContext(AuthContext);
-
-  useEffect(() => {
-  }, [showLoginPopup]);
 
   const router = useRouter();
   const isHHomePage = usePathname() === '/'
@@ -89,7 +84,7 @@ const Header: React.FC = () => {
           {isOpen ? <AiOutlineClose /> : <FaBars />}
         </button>
       </div>
-      {(isOpen || showLoginPopup) && (
+      {isOpen && (
         <div className="md:hidden p-4">
           <nav className="space-y-2 text-right">
             <Link href="/top-ten" onClick={() => setIsOpen(false)}>
