@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { AuthContext } from '@/contexts/authContext';
 import Link from 'next/link';
 import { register, login } from "@/services/authService";
-import Cookies from 'js-cookies';
+import { getCookie, setCookie } from 'typescript-cookie';
 
 
 // Define the login popup component
@@ -72,12 +72,12 @@ const LoginPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 const App: React.FC = () => {
   const { setJwtToken, showLoginPopup, setShowLoginPopup } = useContext(AuthContext);
 
-  const jwtToken = Cookies.get('jwt');
-  const firstName = Cookies.get('firstName');
+  const jwtToken = getCookie('jwt');
+  const firstName = getCookie('firstName');
 
   const handleLogout = () => {
     // Clear token from context
-    Cookies.set('jwt', null);
+    setCookie('jwt', undefined);
   };
 
   return (
