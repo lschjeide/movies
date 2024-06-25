@@ -6,6 +6,7 @@ const nextConfig = {
         'm.media-amazon.com'
         ],
       },
+      
 
 };
 

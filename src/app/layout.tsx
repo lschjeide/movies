@@ -1,15 +1,42 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import axios from './services/axios';
+import { useState, useEffect } from "react";
 
 
 const inter = Inter({ subsets: ["latin"] });
+
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await axios.get('https://strapi.blockchainbilliards.io/api/users/me');
+        if (response.status === 200) {
+          setIsAuthenticated(true);
+        } else {
+          window.location.href = 'https://identity.blockchainbilliards.io/logout';
+        }
+      } catch (error) {
+        window.location.href = 'https://identity.blockchainbilliards.io/logout';
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  if (!isAuthenticated) {
+    return null; // Or a loading spinner
+  }
+
   return (
     <html lang="en">
       <body className={inter.className}>
